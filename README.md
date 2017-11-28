@@ -22,12 +22,10 @@ locaGram is a server side implementaion of API Node project where it sends a req
 6) Host on Heroku.
 7) Install Linter.
 8) Implement Travis CI.
-9) Getting eggs
 
 ## Model.js
 1) Instagram API request.
 2) Filter location server side database
-3)
 
 ## Wireframework:
 ![wireframemapweek5](https://user-images.githubusercontent.com/29677942/33314874-9c263eb4-d437-11e7-84df-e004be747e2f.jpg)
