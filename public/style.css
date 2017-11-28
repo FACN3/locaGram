@@ -1,0 +1,47 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background: url('./assets/mountain.jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.locaGram-title{
+  background-color: rgba(136,136,136,0.5);
+  font-size: 40px;
+  color: white
+}
+
+.locaGram-title h1{
+  margin-left: 5%;
+}
+
+form{
+  margin: 5% 0px 2% 5%;
+}
+
+form input{
+ border: black solid 1px;
+ font-size: 30px;
+ width: 442px;
+ background-color: rgba(136,136,136,0.5);
+}
+
+button{
+  font-size: 30px;
+  background-color: rgb(136,136,136);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 10px 0px 10px
+
+}
+
+#map {
+ height: 400px;
+ width: 500px;
+ margin-left: 5%;
+ bottom: 5px;
+}
