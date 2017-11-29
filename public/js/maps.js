@@ -82,8 +82,13 @@ function initMap() {
       placeMarker(e.latLng, map);
     });
   } else {
-    window.location =
-      'https://api.instagram.com/oauth/authorize/?client_id=2709c9a84d0b4d4982748b11938f02f6&redirect_uri=http://localhost:3000/&response_type=token';
-
-  }
+var url = '';
+if(window.location.host === 'https://facn3locagram.herokuapp.com/'){
+url = 'https://facn3locagram.herokuapp.com/';
+}else{
+url = 'http://0.0.0.0:3000/';
+}
+window.location =
+'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri='+ url +'&response_type=token';
+}
 }
