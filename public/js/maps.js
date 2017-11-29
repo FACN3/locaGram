@@ -59,7 +59,11 @@ function initMap() {
     var lat =position.lat();
     var lng =position.lng();
     console.log(lat,lng);
-    fetch('/model/?q=instaXy&lat='+lat+'&lng='+lng, creatingUl);
+    //geting insta token
+    //var res = str.split(" ");
+//window.location.hash
+    var instatoken = window.location.hash.split("=")[1];
+    fetch('/model/?q=instaXy&lat='+lat+'&lng='+lng +'&instaToken=' + instatoken, creatingUl);
     }
 
     map.addListener('dragend', function() {
@@ -79,7 +83,7 @@ function initMap() {
     });
   } else {
     window.location =
-      'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri=https://facn3locagram.herokuapp.com/&response_type=token';
+      'https://api.instagram.com/oauth/authorize/?client_id=2709c9a84d0b4d4982748b11938f02f6&redirect_uri=http://localhost:3000/&response_type=token';
 
   }
 }
