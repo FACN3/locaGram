@@ -31,11 +31,11 @@ console.log('foo');
 module.exports= {instaLoc,instaXy}
 //code 76f09b861b9840849e2d12ec575b64b1
 
-
-curl \-F 'client_id=910c41cbbdea4d48b893dc58950d9'
--F 'client_secret=64d55271d47f448daba3b915f86ea875'
--F 'grant_type=authorization_code'
--F 'redirect_uri=http://locagram.herokuapp.com/redirect'
--F 'code=76f09b861b9840849e2d12ec575b64b1'
--F 'scope=basic+public_content+follower_list+comments+relationships+likes'    
-https://api.instagram.com/oauth/access_token
+//
+// curl \-F 'client_id=910c41cbbdea4d48b893dc58950d9'
+// -F 'client_secret=64d55271d47f448daba3b915f86ea875'
+// -F 'grant_type=authorization_code'
+// -F 'redirect_uri=http://locagram.herokuapp.com/redirect'
+// -F 'code=76f09b861b9840849e2d12ec575b64b1'
+// -F 'scope=basic+public_content+follower_list+comments+relationships+likes'
+// https://api.instagram.com/oauth/access_token
