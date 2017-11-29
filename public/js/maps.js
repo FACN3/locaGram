@@ -47,16 +47,17 @@ function initMap() {
       e.setMap(null);
     });
   }
-  function placeMarker(position, map, fetch) {
+  function placeMarker(position, map) {
     var marker = new google.maps.Marker({
       position: position,
       map: map
     });
     markerArr.push(marker);
     map.panTo(position);
-    var mapXy = [position.lat(), position.lng()];
-    console.log(position.lat(), position.lng());
-    fetch(mapXy, creatingUl);
+    var lat =position.lat();
+    var lng =position.lng();
+    console.log(lat,lng);
+    fetch('/model/?q=instaXy&lat='+lat+'&lng='+lng, creatingUl);
   }
 
   map.addListener('dragend', function() {
