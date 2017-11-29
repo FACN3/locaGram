@@ -74,6 +74,6 @@ function initMap() {
     });
   } else {
     window.location =
-      'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri=http://0.0.0.0:3000/&response_type=token';
+      'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri=https://facn3locagram.herokuapp.com/&response_type=token';
   }
 }
