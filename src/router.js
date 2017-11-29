@@ -2,7 +2,7 @@ const {staticfiles,heandleError,apiHandler} = require('./handler')
 
 function router(req,res) => {
 
-  if (req.url.includes('/model')){
+  if (req.url.includes('/model.js')){
     apiHandler(req,res);
   }
   else if (req.url!=='404'){
@@ -13,10 +13,6 @@ function router(req,res) => {
     }
 
 
-// const queries = {
-//   "autocomplete" : autocomplete,
-//   "instaLoc" : instaLoc,
-//   "instaXy" : instaXy
-// }[query]
+
 
 module.exports = router
