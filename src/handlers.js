@@ -1,13 +1,14 @@
-const qs = require('qs');
+const {autocomplete,instaLoc,instaXy} = require('./model');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
-staticfiles(req, res) => {
+const staticfiles = (req, res) => {
+  let urlFile = '';
   if (req.url === '/') {
-    let url = '/index.html';
+    urlFile = '/index.html';
   } else {
-    let url = req.url;
+    urlFile = req.url;
   }
   const extensionType = {
     html: 'text/html',
@@ -17,23 +18,30 @@ staticfiles(req, res) => {
     jpeg: 'image/x-icon'
   }[url.split('.')[1]];
 
-  fs.readFile(_dirname + "/../public/" + url, function(error, file) {
+  fs.readFile(`${__dirname}/../public/${urlFile}`, (error, file) => {
     if (error) {
       heandleError(error, request, response)
     } else {
       res.write(200, {
-        "Content-Type": extensionType
+        'Content-Type': extensionType
       })
       res.end(file)
     }
   })
 }
+//API SEARCHES WILL LOOK LIKE THIS : LOCAGRAM.COM/MODEL.JS?autocomplete=TRUE&SEARCH=SEARCHVALUE
 
-apiHandler({url},res)=>{
+//foo=bar&abc=xyz&abc=123
+
+const apiHandler = (req,res)=>{
+  const urlObject = url.parse(req.url,true)
+  const qsKey = Object.keys(urlObject.query)[0]
   const queries = {
-    "autocomplete" : autocomplete,
-    "instaLoc" : instaLoc,
-    "instaXy" : instaXy
-  }[query]
-
+      'autocomplete' : autocomplete,
+      'instaLoc' : instaLoc,
+      'instaXy' : instaXy
+    }[qsKey]
+  queries[qsKey](urlObject.query['search']);
 }
+
+module.exports = {staticfiles, apiHandler}
