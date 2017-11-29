@@ -43,7 +43,7 @@ test('Testing router to js', t => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
       res.headers['content-type'],
-      'javascript/application',
+      'application/json',
       'should respind with content-type application/json'
     );
   });
