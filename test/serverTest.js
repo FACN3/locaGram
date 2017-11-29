@@ -18,9 +18,9 @@ test('Testing router to css', t => {
   shot.inject(router, { method: 'get', url: '/style.css' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['Content-Type'],
+      res.headers['content-type'],
       'text/css',
-      'should respind with Content-Type text/css'
+      'should respind with content-type text/css'
     );
     t.end();
   });
@@ -30,9 +30,9 @@ test('Testing router to index.html', t => {
   shot.inject(router, { method: 'get', url: '/' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['Content-Type'],
+      res.headers['content-type'],
       'text/html',
-      'should respind with Content-Type text/html'
+      'should respind with content-type text/html'
     );
     t.end();
   });
@@ -42,25 +42,25 @@ test('Testing router to js', t => {
   shot.inject(router, { method: 'get', url: '/js/dom.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['Content-Type'],
+      res.headers['content-type'],
       'javascript/application',
-      'should respind with Content-Type javascript/application'
+      'should respind with content-type application/json'
     );
   });
   shot.inject(router, { method: 'get', url: '/js/fetch.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['Content-Type'],
-      'javascript/application',
-      'should respind with Content-Type javascript/application'
+      res.headers['content-type'],
+      'application/json',
+      'should respind with content-type application/json'
     );
   });
   shot.inject(router, { method: 'get', url: '/js/maps.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['Content-Type'],
-      'javascript/application',
-      'should respind with Content-Type javascript/application'
+      res.headers['content-type'],
+      'application/json',
+      'should respind with content-type application/json'
     );
   });
   t.end();

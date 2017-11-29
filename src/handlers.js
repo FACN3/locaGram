@@ -14,7 +14,7 @@ const staticfiles = (req, res) => {
     extensionType = {
     html: 'text/html',
     css: 'text/css',
-    js: 'javascript/application',
+    js: 'application/json',
     ico: 'image/x-icon',
     jpeg: 'image/x-icon'
   }[urlFile.split('.')[1]];
