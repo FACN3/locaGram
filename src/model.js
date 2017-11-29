@@ -1,19 +1,19 @@
 const data = require('./db/locations.json');
 const http = require('http');
 
-const autocomplete = (searchterm) => {
+const autocomplete = searchterm => {
   const newArr = [];
-  data.every((element) => {
-    if(newArr.length==10){
-     return false;
-   }
-   if (element.indexOf(searchterm)==0){
-     newArr.push(element);
-   }
-   return true;
- })
- return newArr;
-}
+  data.every(element => {
+    if (newArr.length == 10) {
+      return false;
+    }
+    if (element.indexOf(searchterm) == 0) {
+      newArr.push(element);
+    }
+    return true;
+  });
+  return newArr;
+};
 
 
 const instaLoc = (searchterm) =>{
