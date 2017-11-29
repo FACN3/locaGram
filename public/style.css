@@ -1,47 +1,96 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
 
-body{
+body {
   background: url('./assets/mountain.jpeg') no-repeat center center fixed;
   background-size: cover;
 }
 
-.locaGram-title{
-  background-color: rgba(136,136,136,0.5);
+.locaGram-title {
+  background-color: rgba(136, 136, 136, 0.5);
   font-size: 40px;
   color: white
 }
 
-.locaGram-title h1{
+.locaGram-title h1 {
   margin-left: 5%;
 }
 
-form{
+form {
   margin: 5% 0px 2% 5%;
-}
-
-form input{
- border: black solid 1px;
- font-size: 30px;
- width: 442px;
- background-color: rgba(136,136,136,0.5);
-}
-
-button{
-  font-size: 30px;
-  background-color: rgb(136,136,136);
-  text-align: center;
-  text-decoration: none;
   display: inline-block;
-  padding: 0px 10px 0px 10px
-
+  width: 100%;
 }
 
+input {
+  border: black solid 1px;
+  font-size: 30px;
+  width: 442px;
+  background-color: rgba(136, 136, 136, 0.5);
+  display: inline-block;
+}
+
+.input-align{
+  display: inline-block;
+}
+
+Button {
+	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background-color:#768d87;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	font-weight:bold;
+	padding:2px 10px 1px 10px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+Button:active {
+	position:relative;
+	top:1px;
+}
+
+Button:hover {
+	background-color:#6c7c7c;
+}
+
+
+.button-align{
+  display: inline-block;
+}
+
+i{
+  display: inline-block;
+}
+/*.left-side:not(button){
+  float: left;
+}*/
+
+/*.right-side{
+  float: right;
+  margin: 5% 5% 2% 0px;
+}*/
+.container{
+display: flex;
+justify-content: space-between;
+}
 #map {
- height: 400px;
- width: 500px;
- margin-left: 5%;
- bottom: 5px;
+  height: 400px;
+  width: 500px;
+  margin-left: 5%;
+  bottom: 5px;
+}
+
+#instagram{
+  border: 10px black solid;
 }
