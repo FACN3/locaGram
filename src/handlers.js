@@ -1,4 +1,4 @@
-const { autocomplete, instaLoc, instaXy } = require('./model');
+const { autocomplete,instaLoc,instaXy } = require('./model');
 const url = require('url');
 const fs = require('fs');
 // const path = require('path');
@@ -36,13 +36,13 @@ const heandleError = (error, request, response) => {
 
 const apiHandler = req => {
   const urlObject = url.parse(req.url, true);
-  const qsKey = Object.keys(urlObject.query)[0];
+  const qsKey = urlObject.query['q'];
   const queries = {
-    autocomplete: autocomplete,
-    instaLoc: instaLoc,
-    instaXy: instaXy
+    'autocomplete': autocomplete,
+    'instaLoc': instaLoc,
+    'instaXy': instaXy
   }[qsKey];
-  queries[qsKey](urlObject.query['search']);
+queries(urlObject.query['lat'],urlObject.query['lng']);
 };
 
 module.exports = { staticfiles, apiHandler };
