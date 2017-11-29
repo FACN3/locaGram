@@ -43,24 +43,24 @@ test('Testing router to js', t => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
       res.headers['content-type'],
-      'javascript/application',
-      'should respind with content-type javascript/application'
+      'application/json',
+      'should respind with content-type application/json'
     );
   });
   shot.inject(router, { method: 'get', url: '/js/fetch.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
       res.headers['content-type'],
-      'javascript/application',
-      'should respind with content-type javascript/application'
+      'application/json',
+      'should respind with content-type application/json'
     );
   });
   shot.inject(router, { method: 'get', url: '/js/maps.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
       res.headers['content-type'],
-      'javascript/application',
-      'should respind with content-type javascript/application'
+      'application/json',
+      'should respind with content-type application/json'
     );
   });
   t.end();
