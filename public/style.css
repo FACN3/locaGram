@@ -32,65 +32,59 @@ input {
   display: inline-block;
 }
 
-.input-align{
+.input-align {
   display: inline-block;
 }
 
 Button {
-	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	background-color:#768d87;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border-radius:4px;
-	border:1px solid #566963;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:30px;
-	font-weight:bold;
-	padding:2px 10px 1px 10px;
-	text-decoration:none;
-	text-shadow:0px -1px 0px #2b665e;
+  -moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  -webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  background-color: #768d87;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 2px 10px 1px 10px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #2b665e;
 }
+
 Button:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 Button:hover {
-	background-color:#6c7c7c;
+  background-color: #6c7c7c;
 }
 
-
-.button-align{
+.button-align {
   display: inline-block;
 }
 
-i{
+i {
   display: inline-block;
 }
-/*.left-side:not(button){
-  float: left;
-}*/
 
-/*.right-side{
-  float: right;
-  margin: 5% 5% 2% 0px;
-}*/
-.container{
-display: flex;
-justify-content: space-between;
+.container {
+  display: flex;
+  justify-content: space-between;
 }
-#map {
+
+.map {
   height: 400px;
   width: 500px;
   margin-left: 5%;
   bottom: 5px;
 }
 
-#instagram{
+.instagram {
   border: 10px black solid;
 }
