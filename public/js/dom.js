@@ -12,4 +12,3 @@
 
 // function creatingUl(err,arr){
 //   console.log('creating instagram template');
-}

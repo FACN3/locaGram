@@ -1,5 +1,6 @@
 const data = require('./db/locations.json');
 const request = require('request');
+const heandleError = require('./handlers')
 
 const autocomplete = searchterm => {
   const newArr = [];
@@ -16,17 +17,47 @@ const autocomplete = searchterm => {
 };
 
 
-const instaLoc = (searchterm) =>{
-  console.log('foo');
+const instaLoc = (locationid,instaToken) =>{
+  const locationLink = `https://api.instagram.com/v1/locations/${locationid}/media/recent?access_token=${instaToken}`
+  console.log('instaLoc link is ',locationLink);
+  request(locationLink,(err,res,body)=>{
+    if (err){
+      console.log('err with', err);
+      return
+    }
+    let json = JSON.parse(body);
+    // console.log(body)
+  })
   //https://api.instagram.com/v1/locations/{location-id}/media/recent?access_token=ACCESS-TOKEN
 }
 
-const instaXy = (lat,lng) =>{
-console.log('foo');
-  // request()
+const instaXy = (lat,lng,instaToken, req,res) =>{
   //https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_token=ACCESS-TOKEN
-  const apiLink =`https://api.instagram.com/v1/locations/search?lat=${lat}&lng=${lng}&access_token=31837141.910c41c.9baa8bcdf5b6412fb89b1f034868b79e`
+  const apiLink =`https://api.instagram.com/v1/locations/search?lat=${lat}&lng=${lng}&access_token=${instaToken}`
+  console.log('instaXY link is ',apiLink);
+  request(apiLink, (err,res,body)=>{
+    if(err){
+      heandleError(err,req,res);
+    }
+    let json = JSON.parse(body);
+    const locationid = filterLocations(json);
+    instaLoc(locationid,instaToken);
+    addToDb(json);
+  })
 }
+const addToDb = (instaDataObj) =>{
+  let newArr=[];
+  instaDataObj.data.forEach(e =>{
+    console.log(e.id);
+    if(e.id!==0){
+      newArr.push(e);
+    }
+  })
+  console.log(newArr);
+}
+
+const filterLocations = (instaDataObj) => instaDataObj.data[0].id
+
 
 module.exports= {instaLoc,instaXy}
 //code 76f09b861b9840849e2d12ec575b64b1
