@@ -31,13 +31,14 @@ const instaLoc = (locationid,instaToken) =>{
   //https://api.instagram.com/v1/locations/{location-id}/media/recent?access_token=ACCESS-TOKEN
 }
 
-const instaXy = (lat,lng,instaToken, req,res) =>{
+const instaXy = (lat,lng,instaToken, cb) =>{
   //https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_token=ACCESS-TOKEN
   const apiLink =`https://api.instagram.com/v1/locations/search?lat=${lat}&lng=${lng}&access_token=${instaToken}`
   console.log('instaXY link is ',apiLink);
   request(apiLink, (err,res,body)=>{
     if(err){
-      heandleError(err,req,res);
+      cb(err);
+      return
     }
     let json = JSON.parse(body);
     const locationid = filterLocations(json);

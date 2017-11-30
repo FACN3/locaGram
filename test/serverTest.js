@@ -18,9 +18,9 @@ test('Testing router to css', t => {
   shot.inject(router, { method: 'get', url: '/style.css' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['content-type'],
+      res.headers['Content-Type'],
       'text/css',
-      'should respind with content-type text/css'
+      'should respind with Content-Type text/css'
     );
     t.end();
   });
@@ -30,7 +30,7 @@ test('Testing router to index.html', t => {
   shot.inject(router, { method: 'get', url: '/' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['content-type'],
+      res.headers['Content-Type'],
       'text/html',
       'should respind with content-type text/html'
     );
@@ -42,25 +42,25 @@ test('Testing router to js', t => {
   shot.inject(router, { method: 'get', url: '/js/dom.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['content-type'],
+      res.headers['Content-Type'],
       'application/json',
-      'should respind with content-type application/json'
+      'should respind with Content-Type application/json'
     );
   });
   shot.inject(router, { method: 'get', url: '/js/fetch.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['content-type'],
+      res.headers['Content-Type'],
       'application/json',
-      'should respind with content-type application/json'
+      'should respind with Content-Type application/json'
     );
   });
   shot.inject(router, { method: 'get', url: '/js/maps.js' }, res => {
     t.equal(res.statusCode, 200, 'should respon witn statusCode 200');
     t.equal(
-      res.headers['content-type'],
+      res.headers['Content-Type'],
       'application/json',
-      'should respind with content-type application/json'
+      'should respind with Content-Type application/json'
     );
   });
   t.end();
