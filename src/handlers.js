@@ -1,7 +1,6 @@
 const { autocomplete,instaLoc,instaXy } = require('./model');
 const url = require('url');
 const fs = require('fs');
-// const path = require('path');
 
 const staticfiles = (req, res) => {
   let urlFile = '';
