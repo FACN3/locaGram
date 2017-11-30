@@ -60,10 +60,8 @@ function initMap() {
     var lng =position.lng();
     console.log(lat,lng);
     //geting insta token
-    //var res = str.split(" ");
-//window.location.hash
-    var instaToken = window.location.hash.split("=")[1];
-    fetch('/model/?q=instaXy&lat='+lat+'&lng='+lng +'&instaToken=' + instaToken, creatingUl);
+    var instatoken = window.location.hash.split("=")[1];
+    fetch('/model/?q=instaXy&lat='+lat+'&lng='+lng +'&instaToken=' + instatoken, creatingUl);
     }
 
     map.addListener('dragend', function() {
