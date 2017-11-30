@@ -18,9 +18,9 @@ const staticfiles = (req, res) => {
     jpeg: 'image/x-icon'
   }[urlFile.split('.')[1]];
   }
-  fs.readFile(`${__dirname}/../public/${urlFile}`, (error, file) => {
-    if (error) {
-      heandleError(error, req, res);
+  fs.readFile(`${__dirname}/../public/${urlFile}`, (err, file) => {
+    if (err) {
+      heandleError(err, req, res);
     } else {
       res.writeHead(200, {'Content-Type': extensionType });
       res.end(file);
@@ -28,12 +28,12 @@ const staticfiles = (req, res) => {
   });
 };
 
-const heandleError = (error, request, response) => {
-  response.writeHead(404, { 'Content-Type': 'text/html' });
-  response.end(`Sorry, an error has occurred${error}`);
+const heandleError = (err, req, res) => {
+  res.writeHead(404, { 'Content-Type': 'text/html' });
+  res.end(`Sorry, an error has occurred${err}`);
 };
 
-const apiHandler = req => {
+const apiHandler = (req,res) => {
   const urlObject = url.parse(req.url, true);
   const qsKey = urlObject.query['q'];
   const queries = {
@@ -41,7 +41,9 @@ const apiHandler = req => {
     'instaLoc': instaLoc,
     'instaXy': instaXy
   }[qsKey];
-queries(urlObject.query['lat'],urlObject.query['lng']);
+
+queries(urlObject.query['lat'],urlObject.query['lng'],urlObject.query['instaToken'],req,res)
 };
 
-module.exports = { staticfiles, apiHandler };
+
+module.exports = { staticfiles, heandleError, apiHandler  };

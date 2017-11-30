@@ -5,7 +5,7 @@ function fetch(url,callBack){
     console.log('readyState' + xhr.readyState);
     console.log('status' + xhr.status);
     if(xhr.readyState == 4 && xhr.status != 200){
-      callBack(true);
+      callBack(xhr.responseText);
     }
 
     if(xhr.readyState == 4 && xhr.status == 200){

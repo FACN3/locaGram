@@ -87,6 +87,6 @@ url = 'https://facn3locagram.herokuapp.com/';
 url = 'http://0.0.0.0:3000/';
 }
 window.location =
-'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri='+ url +'&response_type=token';
+'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri='+ url +'&response_type=token&scope=basic+public_content+follower_list+comments+relationships+likes';
 }
 }
