@@ -1,4 +1,5 @@
 function initMap() {
+  console.log('wassup');
   if (window.location.href.indexOf('access_token') > -1) {
     var markerArr = [];
     var uluru = { lat: -25.363, lng: 131.044 };
@@ -49,19 +50,27 @@ function initMap() {
       });
     }
 
-  function placeMarker(position, map) {
-    var marker = new google.maps.Marker({
-      position: position,
-      map: map
-    });
-    markerArr.push(marker);
-    map.panTo(position);
-    var lat =position.lat();
-    var lng =position.lng();
-    console.log(lat,lng);
-    //geting insta token
-    var instatoken = window.location.hash.split("=")[1];
-    fetch('/model/?q=instaXy&lat='+lat+'&lng='+lng +'&instaToken=' + instatoken, creatingUl);
+    function placeMarker(position, map) {
+      var marker = new google.maps.Marker({
+        position: position,
+        map: map
+      });
+      markerArr.push(marker);
+      map.panTo(position);
+      var lat = position.lat();
+      var lng = position.lng();
+      console.log(lat, lng);
+      //geting insta token
+      var instatoken = window.location.hash.split('=')[1];
+      fetch(
+        '/model/?q=instaXy&lat=' +
+          lat +
+          '&lng=' +
+          lng +
+          '&instaToken=' +
+          instatoken,
+        creatingUl
+      );
     }
 
     map.addListener('dragend', function() {
@@ -71,8 +80,6 @@ function initMap() {
       placeMarker(map.getCenter(), map);
     });
 
-
-
     map.addListener('click', function(e) {
       if (markerArr.length !== 0) {
         setMarkertoNull();
@@ -80,13 +87,15 @@ function initMap() {
       placeMarker(e.latLng, map);
     });
   } else {
-var url = '';
-if(window.location.host === 'https://facn3locagram.herokuapp.com/'){
-url = 'https://facn3locagram.herokuapp.com/';
-}else{
-url = 'http://0.0.0.0:3000/';
-}
-window.location =
-'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri='+ url +'&response_type=token&scope=basic+public_content+follower_list+comments+relationships+likes';
-}
+    var url = '';
+    if (window.location.host === 'https://facn3locagram.herokuapp.com/') {
+      url = 'https://facn3locagram.herokuapp.com/';
+    } else {
+      url = 'http://0.0.0.0:3000/';
+    }
+    window.location =
+      'https://api.instagram.com/oauth/authorize/?client_id=b2156f56dbf24b9cb4a1fc02118d0991&redirect_uri=' +
+      url +
+      '&response_type=token&scope=basic+public_content+follower_list+comments+relationships+likes';
+  }
 }
