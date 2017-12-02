@@ -11,7 +11,7 @@
 // fetch("model.js/?instaLoc=" + urlSearchWord, creatingUl)
 
 function creatingUl(err,arr){
-  if(error){
+  if(err){
     //do sme thing
   }
   // handle working result

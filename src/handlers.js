@@ -1,4 +1,4 @@
-const { autocomplete,instaLoc,instaXy } = require('./model');
+const { autocomplete, instaLoc, instaXy ,apiManager } = require('./model');
 const url = require('url');
 const fs = require('fs');
 
@@ -11,18 +11,18 @@ const staticfiles = (req, res) => {
   } else {
     urlFile = req.url;
     extensionType = {
-    html: 'text/html',
-    css: 'text/css',
-    js: 'application/json',
-    ico: 'image/x-icon',
-    jpeg: 'image/x-icon'
-  }[urlFile.split('.')[1]];
+      html: 'text/html',
+      css: 'text/css',
+      js: 'application/json',
+      ico: 'image/x-icon',
+      jpeg: 'image/x-icon'
+    }[urlFile.split('.')[1]];
   }
   fs.readFile(`${__dirname}/../public/${urlFile}`, (err, file) => {
     if (err) {
       heandleError(err, req, res);
     } else {
-      res.writeHead(200, {'Content-Type': extensionType });
+      res.writeHead(200, { 'Content-Type': extensionType });
       res.end(file);
     }
   });
@@ -33,17 +33,22 @@ const heandleError = (err, req, res) => {
   res.end(`Sorry, an error has occurred${err}`);
 };
 
-const apiHandler = (req,res) => {
+const apiHandler = (req, res) => {
   const urlObject = url.parse(req.url, true);
   const qsKey = urlObject.query['q'];
-  const queries = {
-    'autocomplete': autocomplete,
-    'instaLoc': instaLoc,
-    'instaXy': instaXy
-  }[qsKey];
 
-queries(urlObject.query['lat'],urlObject.query['lng'],urlObject.query['instaToken'],req,res)
+
+  var result = apiManager(
+    urlObject.query['lat'],
+    urlObject.query['lng'],
+    urlObject.query['instaToken'],
+    function(err, result) {
+      if (err) {
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(JSON.stringify(result));
+    }
+  );
 };
 
-
-module.exports = { staticfiles, heandleError, apiHandler  };
+module.exports = { staticfiles, heandleError, apiHandler };

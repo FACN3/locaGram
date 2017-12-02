@@ -15,35 +15,19 @@
   <div class="container">
     <div class="left-content">
       <form class="" action="index.html" method="post">
-        <!-- <div class="input-align">
-          <input type="text" name="" value="" disabled>
-        </div>
-        <div class="button-align">
-          <button type="button" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </div> -->
-
-        <!-- The reason the button is disabled because we are going to use it sometime later -->
       </form>
-      <div id="map"></div>
+     
     </div>
     <div class="right-content">
       <div class="instagram" id="instagram"></div>
     </div>
   </div>
-  <script src="../js/maps.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvT0PZiV_1rf1xnyqWBMMpcu--yr40qGM&callback=initMap">
-  </script>
+  <div class="map" id="map">
+    <script src="./js/fetch.js"></script>
+    <script src="./js/dom.js"></script>
+    <script src="./js/maps.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvT0PZiV_1rf1xnyqWBMMpcu--yr40qGM&callback=initMap">
+    </script>
+  </div>
 </body>
-
-
-<div class="map" id="map">
-<script src="./js/fetch.js"></script>
-<script src="./js/dom.js"></script>
-<script src="./js/maps.js"></script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvT0PZiV_1rf1xnyqWBMMpcu--yr40qGM&callback=initMap">
-</script>
-</div>
-</body>
-
 </html>
